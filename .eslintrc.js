@@ -17,8 +17,8 @@ module.exports = {
   },
   rules: {
     "linebreak-style": 0,
-    "no-plusplus": "off",
-    "max-len": ["error", { "code": 400}],
+    //"no-plusplus": "off",
+    //"max-len": ["error", { "code": 400}],
     "no-nested-ternary":"off"
   },
 };

@@ -111,7 +111,8 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (1,2)     => 0
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
-  const angle = Math.acos((x1 * x2 + y1 * y2) / ((Math.sqrt(x1 * x1 + y1 * y1) * Math.sqrt(x2 * x2 + y2 * y2))));
+  const a = (x1 * x2 + y1 * y2) / ((Math.sqrt(x1 * x1 + y1 * y1) * Math.sqrt(x2 * x2 + y2 * y2)));
+  const angle = Math.acos(a);
   return angle;
 }
 
@@ -204,7 +205,7 @@ function roundToPowerOfTen(num, pow) {
  *   17 => true
  */
 function isPrime(num) {
-  for (let i = 2; i < num; i++) { if (num % i === 0) return false; }
+  for (let i = 2; i < num; i += 1) { if (num % i === 0) return false; }
   return num > 1;
 }
 

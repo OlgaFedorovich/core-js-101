@@ -235,7 +235,7 @@ function encodeToRot13(str) {
   let index;
   let newChar;
 
-  for (let i = 0; i < str.length; i++) {
+  for (let i = 0; i < str.length; i += 1) {
     index = stringLower.indexOf(str[i].toLowerCase());
     if (index === -1) {
       newChar = str[i];

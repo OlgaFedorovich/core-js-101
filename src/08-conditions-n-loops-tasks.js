@@ -68,7 +68,7 @@ function getFactorial(n) {
  */
 function getSumBetweenNumbers(n1, n2) {
   let sum = 0;
-  for (let i = n1; i <= n2; i++) {
+  for (let i = n1; i <= n2; i += 1) {
     sum += i;
   }
   return sum;
@@ -169,7 +169,9 @@ function doRectanglesOverlap(rect1, rect2) {
  *
  */
 function isInsideCircle(circle, point) {
-  return ((point.x - circle.center.x) ** 2) + ((point.y - circle.center.y) ** 2) < circle.radius ** 2;
+  const l = ((point.x - circle.center.x) ** 2);
+  const f = ((point.y - circle.center.y) ** 2);
+  return l + f < circle.radius ** 2;
 }
 
 
@@ -185,7 +187,7 @@ function isInsideCircle(circle, point) {
  *   'entente' => null
  */
 function findFirstSingleChar(str) {
-  for (let i = 0; i < str.length; i++) {
+  for (let i = 0; i < str.length; i += 1) {
     if (str.indexOf(str[i]) === str.lastIndexOf(str[i])) {
       return str[i];
     }
@@ -282,7 +284,7 @@ function isCreditCardNumber(ccn) {
   const str = ccn.toString();
   let sum = 0;
 
-  for (let i = 0; i < str.length; i++) {
+  for (let i = 0; i < str.length; i += 1) {
     let cardNum = +str[i];
 
     if ((str.length - i) % 2 === 0) {
@@ -318,7 +320,7 @@ function getDigitalRoot(num) {
   while (number > 9) {
     const str = number.toString();
     let sum = 0;
-    for (let i = 0; i < str.length; i++) {
+    for (let i = 0; i < str.length; i += 1) {
       sum += +str[i];
     }
     number = sum;
@@ -353,7 +355,7 @@ function isBracketsBalanced(str) {
   const close = [')', '}', ']', '>'];
   const stack = [];
 
-  for (let i = 0; i < str.length; i++) {
+  for (let i = 0; i < str.length; i += 1) {
     if (open.includes(str[i])) {
       stack.push(str[i]);
     } else if (close.indexOf(str[i]) === open.indexOf(stack[stack.length - 1])) {
@@ -452,11 +454,11 @@ function getCommonDirectoryPath(/* pathes */) {
  */
 function getMatrixProduct(m1, m2) {
   const result = [];
-  for (let i = 0; i < m1.length; i++) {
+  for (let i = 0; i < m1.length; i += 1) {
     result[i] = [];
-    for (let j = 0; j < m2[0].length; j++) {
+    for (let j = 0; j < m2[0].length; j += 1) {
       let sum = 0;
-      for (let k = 0; k < m1[0].length; k++) {
+      for (let k = 0; k < m1[0].length; k += 1) {
         sum += m1[i][k] * m2[k][j];
       }
       result[i][j] = sum;
@@ -497,14 +499,15 @@ function getMatrixProduct(m1, m2) {
  *
  */
 function evaluateTicTacToePosition(position) {
-  if (position[0][0] === position[0][1] && position[0][0] === position[0][2] && position[0][0] !== undefined) return position[0][0];
-  if (position[1][0] === position[1][1] && position[1][0] === position[1][2] && position[1][0] !== undefined) return position[1][0];
-  if (position[2][0] === position[2][1] && position[2][0] === position[2][2] && position[2][0] !== undefined) return position[2][0];
-  if (position[0][0] === position[1][0] && position[0][0] === position[2][0] && position[0][0] !== undefined) return position[0][0];
-  if (position[0][1] === position[1][1] && position[0][1] === position[2][1] && position[0][1] !== undefined) return position[0][1];
-  if (position[0][2] === position[1][2] && position[0][2] === position[2][2] && position[0][2] !== undefined) return position[0][2];
-  if (position[0][0] === position[1][1] && position[0][0] === position[2][2] && position[0][0] !== undefined) return position[0][0];
-  if (position[2][0] === position[1][1] && position[2][0] === position[0][2] && position[0][0] !== undefined) return position[2][0];
+  const p = position;
+  if (p[0][0] === p[0][1] && p[0][0] === p[0][2] && p[0][0] !== undefined) return p[0][0];
+  if (p[1][0] === p[1][1] && p[1][0] === p[1][2] && p[1][0] !== undefined) return p[1][0];
+  if (p[2][0] === p[2][1] && p[2][0] === p[2][2] && p[2][0] !== undefined) return p[2][0];
+  if (p[0][0] === p[1][0] && p[0][0] === p[2][0] && p[0][0] !== undefined) return p[0][0];
+  if (p[0][1] === p[1][1] && p[0][1] === p[2][1] && p[0][1] !== undefined) return p[0][1];
+  if (p[0][2] === p[1][2] && p[0][2] === p[2][2] && p[0][2] !== undefined) return p[0][2];
+  if (p[0][0] === p[1][1] && p[0][0] === p[2][2] && p[0][0] !== undefined) return p[0][0];
+  if (p[2][0] === p[1][1] && p[2][0] === p[0][2] && p[0][0] !== undefined) return p[2][0];
   return undefined;
 }
 
