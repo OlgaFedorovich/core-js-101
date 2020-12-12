@@ -436,9 +436,19 @@ function toStringList(arr) {
 function sortCitiesArray(arr) {
   return arr.sort((a, b) => {
     if (a.country === b.country) {
-      return a.city < b.city ? -1 : a.city > b.city ? 1 : 0;
+      if (a.city < b.city) {
+        return -1;
+      } if (a.city > b.city) {
+        return 1;
+      }
+      return 0;
     }
-    return a.country > b.country ? 1 : a.country < b.country ? -1 : 0;
+    if (a.country > b.country) {
+      return 1;
+    } if (a.country < b.country) {
+      return -1;
+    }
+    return 0;
   });
 }
 
