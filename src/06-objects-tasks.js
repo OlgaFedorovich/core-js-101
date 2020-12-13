@@ -53,8 +53,10 @@ function getJSON(obj) {
  *    const r = fromJSON(Circle.prototype, '{"radius":10}');
  *
  */
-function fromJSON(/* proto, json */) {
-  throw new Error('Not implemented');
+function fromJSON(proto, json) {
+  const obj = JSON.parse(json);
+  const newObj = Object.create(proto);
+  return Object.assign(newObj, obj);
 }
 
 
@@ -115,32 +117,77 @@ function fromJSON(/* proto, json */) {
 const cssSelectorBuilder = {
   element(/* value */) {
     throw new Error('Not implemented');
+    // const stringify = () => value;
   },
 
   id(/* value */) {
     throw new Error('Not implemented');
+    // return `#${value}`;
   },
 
   class(/* value */) {
     throw new Error('Not implemented');
+    // return `.${value}`;
   },
 
   attr(/* value */) {
     throw new Error('Not implemented');
+    // return `[${value}]`;
   },
 
   pseudoClass(/* value */) {
     throw new Error('Not implemented');
+    // return `:${value}`;
   },
 
   pseudoElement(/* value */) {
     throw new Error('Not implemented');
+    // return `::${value}`;
   },
 
   combine(/* selector1, combinator, selector2 */) {
     throw new Error('Not implemented');
+    // return `${selector1} ${combinator} ${selector2}`;
   },
 };
+
+// class cssSelectorBuilder {
+//   constructor() {
+//     this.value = '';
+//   }
+
+//   element(value) {
+//     this.value = this.value + value;
+//   }
+
+//   id(value) {
+//     this.value = `${this.value}#${value}`;
+//   }
+
+//   class(value) {
+//     this.value = `${this.value}.${value}`;
+//   }
+
+//   attr(value) {
+//     this.value = `${this.value}[${value}]`;
+//   }
+
+//   pseudoClass(value) {
+//     this.value = `${this.value}:${value}`;
+//   }
+
+//   pseudoElement(value) {
+//     this.value = `${this.value}::${value}`;
+//   }
+
+//   combine(selector1, combinator, selector2) {
+//     this.value = `${this.value}${selector1} ${combinator} ${selector2}`;
+//   }
+
+//   stringify() {
+//     return this.value;
+//   }
+// }
 
 
 module.exports = {
