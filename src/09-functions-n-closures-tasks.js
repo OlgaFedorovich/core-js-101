@@ -62,8 +62,36 @@ function getPowerFunction(exponent) {
  *   getPolynom(8)     => y = 8
  *   getPolynom()      => null
  */
-function getPolynom() {
-  throw new Error('Not implemented');
+function getPolynom(...coefficients) {
+  let foo;
+  if (coefficients.length === 3) {
+    foo = (x) => {
+      let res = 0;
+      coefficients.forEach((num, i) => {
+        switch (i) {
+          case 2:
+            res += num;
+            break;
+          case 1:
+            res += x * num;
+            break;
+          case 0:
+            res += x ** 2 * num;
+            break;
+          default:
+            break;
+        }
+      });
+      return res;
+    };
+  } else if (coefficients.length === 2) {
+    foo = (x) => coefficients[0] * x + coefficients[1];
+  } else if (coefficients.length === 1) {
+    foo = () => coefficients[0];
+  } else {
+    foo = null;
+  }
+  return foo;
 }
 
 
@@ -110,16 +138,14 @@ function memoize(func) {
  * retryer() => 2
  */
 function retry(/* func, attempts */) {
-  // return function(...args) {
-  //   for(let i = 0; i < attempts; i++) {
-  //     try {
-  //       func.call(this, ...args);
-  //     } catch (e) {
-  //         if(attempts-- > 0) await new Promise(r => setTimeout(r, delay));
-  //         else throw e;
-  //     }
+  // console.log(func, attempts);
+  // return () => {
+  //   try {
+  //     func();
+  //   } catch (e) {
+  //     retry(func, attempts - 1);
   //   }
-  // }
+  // };
   throw new Error('Not implemented');
 }
 
@@ -148,6 +174,12 @@ function retry(/* func, attempts */) {
  *
  */
 function logger(/* func, logFunc */) {
+  // return function () {
+  //   logFunc.apply(this, arguments);
+  //   const result = func.apply(this, arguments);
+  //   logFunc.apply(this, arguments);
+  //   return result();
+  // };
   throw new Error('Not implemented');
 }
 

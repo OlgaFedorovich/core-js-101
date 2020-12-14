@@ -17,5 +17,6 @@ module.exports = {
   },
   rules: {
     "linebreak-style": 0,
+    "prefer-rest-params": "off",
   },
 };

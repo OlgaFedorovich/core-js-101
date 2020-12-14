@@ -116,39 +116,61 @@ function fromJSON(proto, json) {
 
 const cssSelectorBuilder = {
   element(/* value */) {
+    // this.answer = `${value}`;
+    // this.stringify = function () {
+    //   return this.answer;
+    // };
     throw new Error('Not implemented');
-    // const stringify = () => value;
   },
 
   id(/* value */) {
+    // this.answer = `#${value}`;
+    // this.stringify = function () {
+    //   return this.answer;
+    // };
     throw new Error('Not implemented');
-    // return `#${value}`;
   },
 
   class(/* value */) {
+    // this.answer = `.${value}`;
+    // this.stringify = function () {
+    //   return this.answer;
+    // };
     throw new Error('Not implemented');
-    // return `.${value}`;
   },
 
   attr(/* value */) {
+    // this.answer = `.${value}`;
+    // this.stringify = function () {
+    //   return this.answer;
+    // };
     throw new Error('Not implemented');
-    // return `[${value}]`;
   },
 
   pseudoClass(/* value */) {
+    // this.answer = `:${value}`;
+    // this.stringify = function () {
+    //   return this.answer;
+    // };
     throw new Error('Not implemented');
-    // return `:${value}`;
   },
 
   pseudoElement(/* value */) {
+    // this.answer = `::${value}`;
+    // this.stringify = function () {
+    //   return this.answer;
+    // };
     throw new Error('Not implemented');
-    // return `::${value}`;
   },
 
   combine(/* selector1, combinator, selector2 */) {
+    // this.answer = `${selector1} ${combinator} ${selector2}`;
+    // this.stringify = function () {
+    //   return this.answer;
+    // };
     throw new Error('Not implemented');
-    // return `${selector1} ${combinator} ${selector2}`;
   },
+
 };
 
 // class cssSelectorBuilder {
